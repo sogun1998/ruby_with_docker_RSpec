@@ -1,6 +1,11 @@
 FROM ruby:2.7.2
 # RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
+RUN apt-get -y install curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
+RUN apt-get -y install nodejs
+RUN npm install --global yarn
+# RUN npm install
 RUN mkdir /myapp
 WORKDIR /myapp
 ADD Gemfile /myapp/Gemfile
