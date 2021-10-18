@@ -38,3 +38,15 @@ RSpec.describe Micropost, type: :model do
     # it { should validate_presence_of(:user_id)}
   end
 end
+RSpec.describe User, type: :model do
+  describe "Associations" do
+    subject { build(:user) }
+    # it "belongs to user" do
+    #   association = described_class.reflect_on_association(:user)
+    #   expect(association.macro).to eq :belongs_to
+    # end
+    it { should validate_presence_of(:content)}
+    it { should belong_to(:user)}
+    # it { should validate_presence_of(:user_id)}
+  end
+end
